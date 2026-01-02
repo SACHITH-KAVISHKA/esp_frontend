@@ -30,7 +30,7 @@ export function useFleetOverview(refreshInterval = 15000) {  // Increased from 1
 }
 
 // Hook for fetching all buses
-export function useBuses(refreshInterval = 10000) {  // Increased from 5s to 10s
+export function useBuses(refreshInterval = 10000) {
   const [buses, setBuses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -95,7 +95,7 @@ export function useBusDetails(vehicleId) {
 
   useEffect(() => {
     fetchData();
-    const interval = setInterval(fetchData, 10000);  // Increased from 5s to 10s
+    const interval = setInterval(fetchData, 10000);
     return () => clearInterval(interval);
   }, [fetchData]);
 
@@ -129,7 +129,7 @@ export function useBusHistory(vehicleId, hours = 24) {
 }
 
 // Hook for map data
-export function useMapData(refreshInterval = 10000) {  // Increased from 5s to 10s
+export function useMapData(refreshInterval = 10000) {
   const [mapData, setMapData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
