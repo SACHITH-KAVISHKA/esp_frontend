@@ -3,7 +3,7 @@ import { fleetService } from '../services/api';
 import socketService from '../services/socket';
 
 // Hook for fetching fleet overview
-export function useFleetOverview(refreshInterval = 10000) {
+export function useFleetOverview(refreshInterval = 15000) {  // Increased from 10s to 15s
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -30,7 +30,7 @@ export function useFleetOverview(refreshInterval = 10000) {
 }
 
 // Hook for fetching all buses
-export function useBuses(refreshInterval = 5000) {
+export function useBuses(refreshInterval = 10000) {  // Increased from 5s to 10s
   const [buses, setBuses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -95,7 +95,7 @@ export function useBusDetails(vehicleId) {
 
   useEffect(() => {
     fetchData();
-    const interval = setInterval(fetchData, 5000);
+    const interval = setInterval(fetchData, 10000);  // Increased from 5s to 10s
     return () => clearInterval(interval);
   }, [fetchData]);
 
@@ -129,7 +129,7 @@ export function useBusHistory(vehicleId, hours = 24) {
 }
 
 // Hook for map data
-export function useMapData(refreshInterval = 5000) {
+export function useMapData(refreshInterval = 10000) {  // Increased from 5s to 10s
   const [mapData, setMapData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
